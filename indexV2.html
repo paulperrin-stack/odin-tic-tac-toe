@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odin - Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1 class="title">Tic Tac Toe</h1>
+    </header>
+
+    <main>
+<!-- Intro/Game Selection Screen
+        <section class="introScreen active">
+            <h2>Choose Game Mode</h2>
+
+            <div class="gameOptions">
+                <div class="botScreen">
+                    <h3>Play Against AI</h3>
+                    <button class="mode-btn" data-mode="ai-easy">Easy Bot</button>
+                    <button class="mode-btn" data-mode="ai-gard">Hard Bot</button>
+                </div>
+
+                <div class="playerScreen">
+                    <h3>Muliplayer</h3>
+                    <button class="mode-btn" data-mode="player">2 Players</button>
+                </div>
+            </div>
+        </section>
+-->
+        <!-- Main Game Screen -->
+        <section class="gameScreen">
+            <div class="score">
+                <div class="scoreX">
+                    <span>Player X:</span>
+                    <span class="scoreValue-X">0</span>
+                </div>
+                <div class="scoreO">
+                    <span>Player O:</span>
+                    <span class="scoreValue-O">0</span>
+                </div>
+            </div>
+            <div class="narrativeGame">
+                <p class="gameStatus">Start game or select player</p>
+            </div>
+            <div class="boardGame">
+                <div class="boardWrapper" role="grid" aria-label="Tic Tac Toe Game Board">
+                    <button class="gameCell" data-index="0" aria-label="Cell 1"></button>
+                    <button class="gameCell" data-index="1" aria-label="Cell 2"></button>
+                    <button class="gameCell" data-index="2" aria-label="Cell 3"></button>
+                    <button class="gameCell" data-index="3" aria-label="Cell 4"></button>
+                    <button class="gameCell" data-index="4" aria-label="Cell 5"></button>
+                    <button class="gameCell" data-index="5" aria-label="Cell 6"></button>
+                    <button class="gameCell" data-index="6" aria-label="Cell 7"></button>
+                    <button class="gameCell" data-index="7" aria-label="Cell 8"></button>
+                    <button class="gameCell" data-index="8" aria-label="Cell 9"></button>
+                </div>
+            </div>
+            <div class="gameControls">
+                <button class="restart-btn">Restart Game</button>
+            </div>
+        </section>
+        
+<!-- Result/Overlay Screen
+        <section class="resultScreen">
+            <div class="resultContent">
+                <h2 class=resultTitle></h2>
+                <p class="resultMessage"></p>
+                <div class="resultActions">
+                    <button class="play-again-btn">Play Again</button>
+                    <button class="menu-btn">Main Menu</button>
+                </div>
+            </div>
+        </section>
+    </main>
+-->
+    <footer>
+        <p>Made by <a href="https://github.com/paulperrin-stack" target="_blank">@paulperrin-stack</a></p>
+    </footer>
+</body>
+</html>

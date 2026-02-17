@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe - Odin Project</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1 class="title">Tic Tac Toe</h1>
+  </header>
+
+  <main>
+    <!-- Main Game Screen -->
+    <section class="gameScreen">
+      <div class="score">
+        <div class="scoreX">
+          <span>Player X:</span>
+          <span class="scoreValue-X">0</span>
+        </div>
+        <div class="scoreO">
+          <span>Player O:</span>
+          <span class="scoreValue-O">0</span>
+        </div>
+      </div>
+
+      <div class="narrativeGame">
+        <p class="gameStatus">Start game – Player X goes first</p>
+      </div>
+
+      <div class="boardGame">
+        <div class="boardWrapper" role="grid" aria-label="Tic Tac Toe Game Board">
+          <button class="gameCell" data-index="0" aria-label="Cell 1, empty"></button>
+          <button class="gameCell" data-index="1" aria-label="Cell 2, empty"></button>
+          <button class="gameCell" data-index="2" aria-label="Cell 3, empty"></button>
+          <button class="gameCell" data-index="3" aria-label="Cell 4, empty"></button>
+          <button class="gameCell" data-index="4" aria-label="Cell 5, empty"></button>
+          <button class="gameCell" data-index="5" aria-label="Cell 6, empty"></button>
+          <button class="gameCell" data-index="6" aria-label="Cell 7, empty"></button>
+          <button class="gameCell" data-index="7" aria-label="Cell 8, empty"></button>
+          <button class="gameCell" data-index="8" aria-label="Cell 9, empty"></button>
+        </div>
+      </div>
+
+      <div class="gameControls">
+        <button class="restart-btn" title="Start a new game">Restart Game</button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

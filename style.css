@@ -1,0 +1,213 @@
+/* ==========================================================================
+   RESET & BASE STYLES
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+  color: #e0e0ff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   HEADER & TITLE
+   ========================================================================== */
+header {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.35);
+  border-bottom: 1px solid rgba(100, 100, 255, 0.18);
+}
+
+.title {
+  font-size: clamp(2rem, 7vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #c7d2fe;
+  text-shadow: 0 2px 10px rgba(100, 120, 255, 0.3);
+}
+
+/* ==========================================================================
+   MAIN LAYOUT & GAME CONTAINER
+   ========================================================================== */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.gameScreen {
+  background: rgba(20, 20, 45, 0.82);
+  border-radius: 16px;
+  padding: 2rem 2.5rem;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.55),
+    inset 0 0 20px rgba(80, 100, 255, 0.08);
+  border: 1px solid rgba(120, 120, 255, 0.2);
+  width: 100%;
+  max-width: 480px;          /* Slightly increased for better desktop appearance */
+}
+
+/* ==========================================================================
+   SCORE DISPLAY
+   ========================================================================== */
+.score {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  padding: 0 1rem;
+}
+
+.scoreX span:first-child { color: #a5b4fc; }
+.scoreO span:first-child { color: #f9a8d4; }
+
+.scoreValue-X,
+.scoreValue-O {
+  font-size: 1.6rem;
+  min-width: 2.5ch;
+  text-align: right;
+}
+
+/* ==========================================================================
+   GAME STATUS MESSAGE
+   ========================================================================== */
+.narrativeGame {
+  text-align: center;
+  margin: 1rem 0 2rem;
+  font-size: 1.35rem;
+  font-weight: 500;
+  min-height: 1.6em;         /* Prevents layout jump when text changes */
+  color: #cdd5ff;
+}
+
+/* ==========================================================================
+   TIC-TAC-TOE BOARD
+   ========================================================================== */
+.boardGame {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 400px;           /* Controls maximum board size on large screens */
+}
+
+.boardWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;                  /* Space between cells – adjust for taste */
+  aspect-ratio: 1 / 1;        /* Keeps the entire board perfectly square */
+  width: 100%;
+}
+
+.gameCell {
+  background: rgba(35, 35, 65, 0.75);
+  border: 2px solid rgba(110, 110, 255, 0.3);
+  border-radius: 12px;
+  
+  /* Key fix: force each cell to be square */
+  aspect-ratio: 1 / 1;
+  
+  font-size: clamp(2.8rem, 12vw, 5rem);  /* Responsive symbol size */
+  font-weight: bold;
+  color: transparent;                    /* Hide until X or O is placed */
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  touch-action: manipulation;            /* Improves touch response on mobile */
+}
+
+.gameCell:hover:not(.X):not(.O) {
+  background: rgba(50, 50, 90, 0.9);
+  border-color: rgba(140, 140, 255, 0.55);
+  transform: scale(1.03);
+}
+
+/* Player symbol colors + glow */
+.gameCell.X {
+  color: #a5b4fc;
+  text-shadow: 0 0 12px rgba(165, 180, 252, 0.6);
+}
+
+.gameCell.O {
+  color: #f9a8d4;
+  text-shadow: 0 0 12px rgba(249, 168, 212, 0.6);
+}
+
+/* Winning line highlight */
+.gameCell.winning {
+  background: rgba(80, 200, 120, 0.28);
+  border-color: #86efac;
+  box-shadow: 0 0 25px rgba(134, 239, 172, 0.5);
+  animation: winner-glow 1.4s infinite alternate;
+}
+
+/* ==========================================================================
+   CONTROLS
+   ========================================================================== */
+.gameControls {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.restart-btn {
+  padding: 0.9rem 2.4rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  color: white;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.45);
+  transition: all 0.22s ease;
+}
+
+.restart-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.6);
+}
+
+.restart-btn:active {
+  transform: translateY(1px);
+}
+
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+@keyframes winner-glow {
+  from { box-shadow: 0 0 12px rgba(134, 239, 172, 0.4); }
+  to   { box-shadow: 0 0 35px rgba(134, 239, 172, 0.8); }
+}
+
+/* ==========================================================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================================================== */
+@media (max-width: 500px) {
+  .gameScreen {
+    padding: 1.5rem 1.2rem;
+  }
+  
+  .boardWrapper {
+    gap: 8px;               /* Smaller gap on narrow screens */
+  }
+  
+  .gameCell {
+    font-size: clamp(2.2rem, 10vw, 4.2rem);
+  }
+  
+  .title {
+    font-size: 2.6rem;
+  }
+}
